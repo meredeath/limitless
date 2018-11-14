@@ -7,9 +7,9 @@ char ** parse_args(char * line){
   char * s;
   s = strsep(line," ");
 
-  char steve[5];
+  char steve[sizeof(line)];
   
-  while (
+  
 }
 int main(){
   return 0;
