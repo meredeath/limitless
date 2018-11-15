@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include "arguments.h"
 
 char ** parse_args(char * line){
   char ** steve = (char **)malloc(strlen(line)+1);
