@@ -1,3 +1,4 @@
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -7,37 +8,22 @@
 char ** parse_args(char * line){
   char ** steve = (char **)malloc(strlen(line)+1);
 
-  int counter = 0;
-  /*
-  char *s = strsep(&line," ");
-  steve[0] = line;
-  while(s){
-    s = strsep(&s," ");
-    //char *temp = (char *)malloc(sizeof(line));
-    //strcpy(line,temp);
+  int counter;
+ 
+  //counting 5 args...                                                          
+  for (counter = 0; counter <= 5; counter++){
+    char *s = strsep(&line, " ");
     steve[counter] = s;
-    counter++;
   }
-  */
-  parse_recursive(line,steve,counter);
-  counter++;
-  while(s){
-    s = parse_recursive(s,steve,counter);
-    counter++;
-  }
+  //steve[0] = line;                                                            
+  /*                                                                            
+  while(s){                                                                     
+    // s = strsep(&s," ");                                                      
+    //char *temp = (char *)malloc(sizeof(line));                                
+    //strcpy(line,temp);   
+    */
   return steve;
 }
-
-char * parse_recursive(char * l, char ** s, int counter){
-  if(l){
-    char *st = strsep(&l," ");
-    s[counter] = l;
-    return st;
-  }else{
-    return NULL;
-  }
-}
-
 int main(){
   char l[100] = "woah-this-is-cool";
   char *s1 = l;
@@ -50,3 +36,7 @@ int main(){
   }
   return 0;
 }
+
+
+
+
