@@ -6,22 +6,25 @@
 #include "arguments.h"
 
 char ** parse_args(char * line){
-  char ** steve = (char **)malloc(strlen(line)+1);
-
-  int counter;
- 
-  //counting 5 args...                                                          
-  for (counter = 0; counter <= 5; counter++){
-    char *s = strsep(&line, " ");
+  char ** steve = (char **)malloc(5*sizeof(char*));
+  int counter = 0;
+  
+  char *s;
+  while(line != NULL){
+    printf("%s\n",line);
+    //printf("%s\n",s);
+    s = strsep(&line,"-");
+    printf("s after strsep: %s\n",s);
+    printf("line after strsep: %s\n",line);
     steve[counter] = s;
+    printf("what's at steve[counter] now: %s\n",steve[counter]);
+    //strcpy(s,steve[counter]);
+    //line = s;
+    counter++;
   }
-  //steve[0] = line;                                                            
-  /*                                                                            
-  while(s){                                                                     
-    // s = strsep(&s," ");                                                      
-    //char *temp = (char *)malloc(sizeof(line));                                
-    //strcpy(line,temp);   
-    */
+  printf("reached\n");
+  steve[counter+1] = NULL;
+  printf("what's steve[counter]: %s\n",steve[counter]);
   return steve;
 }
 int main(){
@@ -30,7 +33,7 @@ int main(){
 
   char * s2;
   char ** a = parse_args(s1);
-  while(a){
+  while(a != NULL){
     printf("%s\n",*a);
     a++;
   }
