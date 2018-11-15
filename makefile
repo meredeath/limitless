@@ -1,6 +1,6 @@
 all: arguments.o
-	gcc -o arguments.o
+	gcc arguments.o -o test
 arguments.o: arguments.c
-	gcc -c arguments.c
+	gcc arguments.c -c
 run:
-	./a.out
+	./test
